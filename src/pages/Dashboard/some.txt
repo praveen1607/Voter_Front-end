@@ -1,0 +1,181 @@
+{this.state.isLoading ? (
+    <>Loading...</>
+  ) : (
+    <>
+      {this.state.userInfo &&
+      this.state.userInfo["role"] === "admin" ? (
+        <>
+          <div className="adminDashboard">
+            <div className="row">
+              <div className="col s1"></div>
+              <div className="col s6"></div>
+              <div className="col s5">
+                <div className="approvalCandidatesList">
+                  <h5>
+                    <u>Approval Candidates' List</u>
+                  </h5>
+                  {this.state.approvalCandidates.length ? (
+                    this.state.approvalCandidates.map(
+                      (candidate, index) => {
+                        return (
+                          <div
+                            className="approvalCandidateInfo"
+                            key={index}
+                          >
+                            <p>
+                              {candidate.name}
+                              {" , "}
+                              {candidate.branch}
+                            </p>
+                            <button
+                              className="btn standardbutton"
+                              onClick={() =>
+                                this.approveCandidate(
+                                  candidate.collegeID
+                                )
+                              }
+                            >
+                              APPROVE
+                            </button>
+                          </div>
+                        );
+                      }
+                    )
+                  ) : (
+                    <>
+                      <h6>No new candidates registered...</h6>
+                    </>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
+      ) : (
+        <>
+          {this.state.userInfo &&
+          2021 -
+            parseInt(
+              new Date(this.state.userInfo["dob"]).getFullYear()
+            ) >=
+            18 ? (
+            <div className="row">
+              <div className="col s8">
+                {this.state.userInfo && (
+                  <>
+                    <h5>
+                      Welcome to the Dashboard{" "}
+                      {this.state.userInfo.name}
+                    </h5>
+                  </>
+                )}
+              </div>
+              <div className="col s4">
+                {this.state.userInfo &&
+                this.state.userInfo["role"] === "voter" ? (
+                  <button
+                    className="btn waves-effect standardbutton"
+                    onClick={this.applyForCandidatureHelper}
+                  >
+                    APPLY FOR CANDIDATURE
+                  </button>
+                ) : (
+                  <>
+                    {this.state.userInfo["role"] === "candidate" &&
+                    this.state.userInfo["approved"] === true ? (
+                      <> You are now a candidate</>
+                    ) : (
+                      <>Admin has not yet approved your request</>
+                    )}
+                  </>
+                )}
+                <ul className="collection">
+                  {this.state.elections.length ? (
+                    this.state.elections.map((election, index) => {
+                      return (
+                        <li
+                          className="collection-item avatar"
+                          key={index}
+                        >
+                          {election.location}
+                          {","}
+                          {election.position}
+                          <i
+                            className="material-icons"
+                            style={{ float: "right" }}
+                            onClick={() => {
+                              this.viewElection(election);
+                            }}
+                          >
+                            remove_red_eye
+                          </i>
+                        </li>
+                      );
+                    })
+                  ) : (
+                    <></>
+                  )}
+                </ul>
+                {/* voting jsx start */}
+                <ul className="collection">
+                  {this.state.nominees.length ? (
+                    this.state.nominees.map((nominee, index) => {
+                      return (
+                        <li
+                          className="collection-item avatar"
+                          key={index}
+                        >
+                          {nominee.candidate.name}
+                          {","}
+                          {nominee.party.name}
+                          <button
+                            className="waves-effect btn"
+                            onClick={() => {
+                              const obj = {
+                                voteTime: moment(new Date()).format(
+                                  "MM-DD-YYYY"
+                                ),
+                                collegeID: this.state.userInfo
+                                  .collegeID,
+                                party: nominee.party._id,
+                                candidate: nominee.candidate._id,
+                                election: nominee.election._id,
+                              };
+                              this.setState({
+                                selectedNominee: nominee.candidate.name,
+                                voteInfo: obj,
+                              });
+                            }}
+                          >
+                            {this.state.selectedNominee ==
+                            nominee.candidate.name
+                              ? "SELECTED"
+                              : "SELECT"}
+                          </button>
+                        </li>
+                      );
+                    })
+                  ) : (
+                    <></>
+                  )}
+                </ul>
+                {this.state.voteInfo && (
+                  <button
+                    className="waves-effect btn"
+                    onClick={this.castVote}
+                  >
+                    Vote
+                  </button>
+                )}
+                {/* voting jsx end */}
+              </div>
+            </div>
+          ) : (
+            <>
+              <h2>You are not yet eligible for voting</h2>
+            </>
+          )}
+        </>
+      )}
+    </>
+  )}

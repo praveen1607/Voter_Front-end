@@ -1,0 +1,41 @@
+.List .ListCollection{
+    height: 60vh;
+    overflow-y: auto;
+    padding: 0 1rem;
+}
+
+.List .ListCollection::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+.List .ListCollection::-webkit-scrollbar-track {
+    background: #eee;
+}
+
+.List .ListCollection::-webkit-scrollbar-thumb {
+    background-color: #00447c;
+    border-radius: 6px;
+    border: 1px solid #00447c;
+}
+
+.List .userInfo{
+    margin-top: 5rem;
+    padding: 2rem;
+    /* border: 1px solid #eee; */
+    box-shadow: 0 0 10px 5px #eee;
+    font-size: 1rem;
+    background-color: #0076ce;
+    color: #fff;
+}
+
+.List .userInfo .username{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+
+.List .userInfo_btn{
+    background-color: black;
+    color: white;
+    margin: 1rem;
+}

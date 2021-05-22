@@ -1,0 +1,82 @@
+.signup{
+    align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  background-image: linear-gradient(
+    45deg,
+    rgba(171, 172, 161, 0.62),
+    rgba(255, 204, 241, 0.466)
+  ),
+  url("https://presidencyuniversity.in/content/uploads/2017/07/presidency-university-campus-Infrastructure.jpg");
+background-repeat: no-repeat;
+background-size: cover;   
+
+}
+
+.signup h6{
+    color: #000;
+    font-size: large;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.signup .formContainer{
+  width: 50vw;
+  box-shadow: 4px 6px 6px #aaa;
+  background-color: #fff;
+  padding: 2rem;
+}
+
+.signup #signupForm {
+  height: 50vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 2rem;
+}
+
+.signup .loginImg{
+  margin-top: 120px;
+  width: 45vh;
+  height: 40vh;
+}
+
+.signup #signupForm .row{
+    margin: 0;
+}
+
+#signupForm::-webkit-scrollbar {
+  width: 5px;
+}
+
+#signupForm::-webkit-scrollbar-track {
+  background: #eee;
+}
+
+#signupForm::-webkit-scrollbar-thumb {
+  background-color: #00447c ;
+  border-radius: 6px;
+  border: 1px solid #00447c ;
+}
+
+.signup .linkMessage{
+    margin-top: 1rem;
+    font-size: smaller;
+}
+
+.signup .linkMessage a{
+  color: black;
+  text-decoration: none;
+}
+
+.signup .linkMessage .material-icons{
+  font-size: small;
+}
+
+.signup .material-icons{
+  margin: 0 0.5rem;
+}
+
+.signup .required{
+  color: rgb(250, 73, 102);
+}

@@ -1,0 +1,6 @@
+.ElectionStats .voteInfo{
+    border: 1px solid #aaa;
+    padding: 0.5rem 1rem;
+    margin: 1rem;
+    background-color: #fbeec1;
+}

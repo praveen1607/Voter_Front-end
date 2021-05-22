@@ -1,0 +1,11 @@
+.ListCollection .modal-close .btn-flat{
+    color: white !important;
+}
+
+.ListCollection .actions{
+    float: right;
+}
+
+.ListCollection .actions i{
+    cursor: pointer;
+}

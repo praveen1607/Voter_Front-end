@@ -1,0 +1,31 @@
+.homePage{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(
+      45deg,
+      rgba(171, 172, 161, 0.62),
+      rgba(245, 155, 185, 0.58)
+    ),
+    url("https://th.bing.com/th/id/OIP.DOpsiBW6_lUrlkD7-0nq3wHaEc?w=289&h=180&c=7&o=5&dpr=1.5&pid=1.7");
+  background-repeat: no-repeat;
+  background-size: cover;  
+}
+
+.homePage .message{
+    background-color: #fff;
+    padding: 1rem 2rem;
+    box-shadow: 4px 6px 6px #aaa;
+}
+
+.homePage .actions{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.homePage .actions button{
+    margin: 1rem 0;
+}
